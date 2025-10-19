@@ -1,0 +1,14 @@
+# Git Ignore File
+
+# Virtual Environment
+venv/
+*.pyc
+
+# Database file
+recipes.db
+
+# IDE files (Visual Studio Code)
+.vscode/
+
+# Python cache
+__pycache__/
