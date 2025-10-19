@@ -98,7 +98,7 @@ Test Coverage: ครอบคลุม Logic สำคัญของ DataStore
 
 1. การตั้งค่าโครงการ (Setup)
 
-โคลน Repository: git clone https://aws.amazon.com/th/what-is/repo/
+โคลน Repository: คัดลอก URL Repository ของคุณแล้วใช้คำสั่ง git clone https://www.reddit.com/r/grammar/comments/4r9d5v/of_you_or_of_yours/?tl=th
 
 เข้าโฟลเดอร์: cd recipe-helper-project2
 
