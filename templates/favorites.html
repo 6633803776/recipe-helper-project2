@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>รายการซื้อของและสูตรโปรด</title>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="logo">Recipe Helper</span>
+            <a href="{{ url_for('index') }}" class="nav-link">🔍 กลับไปหน้าค้นหา</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>🛒 ของที่ต้องเตรียมค้าบเบ้บ</h1>
+
+        {% if shopping_list %}
+            <div id="shopping-list-card">
+                <h2>รายการซื้อของที่ต้องเตรียม:</h2>
+                <ul>
+                    {% for item in shopping_list %}
+                        <li>{{ item|capitalize }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <p>💡 ยังไม่มีวัตถุดิบในรายการซื้อของ! ลองบันทึกสูตรโปรดเพิ่มสิ!</p>
+            </div>
+        {% endif %}
+        
+        <hr>
+
+        <h2>⭐ สูตรโปรดที่บันทึกไว้ ({{ favorites|length }} สูตร)</h2>
+        {% if favorites %}
+            <ul id="favorite-recipes-list">
+                {% for id, title, ingredients_json in favorites %}
+                    <li class="favorite-item">
+                        <span class="recipe-title">{{ title }}</span>
+                        <div class="actions">
+                            <a href="{{ url_for('view_recipe', recipe_id=id) }}" class="btn-detail">🔍 ดูวัตถุดิบ</a>
+                            
+                            <form method="POST" action="{{ url_for('delete_favorite_route', recipe_id=id) }}" style="display:inline;">
+                                <button type="submit" class="btn-delete" onclick="return confirm('คุณต้องการลบสูตร {{ title }} นี้ใช่หรือไม่?');">
+                                    🗑️ ลบ
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+
+/* 1. Reset, Font, และกำหนดค่าพื้นฐาน */
+body {
+    /* ใช้ฟอนต์น่ารัก: Itim (ไทย) และ Kalam (อังกฤษ) */
+    font-family: 'Itim', 'Kalam', cursive, sans-serif;
+    background-color: #F5F5F5; /* พื้นหลังเทาพาสเทลอ่อน */
+    color: #4A4A4A;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: linear-gradient(135deg, #F0F8FF 0%, #FAEBD7 100%); /* พื้นหลังไล่เฉดเบาๆ */
+    background-attachment: fixed; /* ตรึงพื้นหลัง */
+}
+
+/* 2. การจัดวางเนื้อหาหลัก (Container) */
+.container {
+    max-width: 800px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 35px 45px;
+    border-radius: 20px; /* ขอบโค้งมนน่ารัก */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #E6E6FA; /* เส้นประม่วงอ่อน */
+}
+
+/* 3. ส่วนหัว (Headers) - ใช้สีม่วงพาสเทล */
+h1 {
+    color: #DDA0DD; /* ม่วงพาสเทล */
+    text-align: center;
+    font-size: 2.2em;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #9370DB; /* ม่วงกลาง */
+    margin-top: 25px;
+    padding-top: 10px;
+    border-top: 1px dashed #E6E6FA;
+}
+
+/* 4. Header Bar ด้านบน */
+header {
+    background-color: #DDA0DD; /* ม่วงพาสเทลเข้มขึ้น */
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+/* 5. การจัดการ Form (Search Input) */
+.search-area {
+    background: #F8F8FF;
+    border: 1px solid #E6E6FA;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 18px;
+    border: 2px solid #DDA0DD; /* กรอบสีม่วงพาสเทล */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #FFB6C1; /* สีชมพูพาสเทลเมื่อโฟกัส */
+    box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+    outline: none;
+}
+
+button[type="submit"] {
+    padding: 12px 25px;
+    background-color: #FFB6C1; /* ปุ่มสีชมพูพาสเทล */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #FFA0B0; /* เข้มขึ้นเล็กน้อยเมื่อชี้ */
+}
+
+/* 6. ลิงก์และปุ่ม (Links and Actions) */
+a {
+    color: #8A2BE2; /* สีม่วงสำหรับลิงก์ */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #581691;
+}
+
+.btn-favorite {
+    background-color: #E6E6FA; /* ม่วงอ่อนมาก */
+    color: #9370DB;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid #DDA0DD;
+}
+
+.btn-favorite:hover {
+    background-color: #D8BFD8;
+    text-decoration: none;
+}
+
+/* 7. การแสดงรายการ (Lists) */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #F0FFFF; /* พื้นหลังรายการ ฟ้าพาสเทล */
+    border: 1px solid #B0E0E6;
+    padding: 18px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* สไตล์เฉพาะสำหรับรายการซื้อของ (Grocery List) */
+#shopping-list ul li {
+    background-color: #FFF0F5; /* ชมพูพาสเทลอ่อนพิเศษ */
+    font-weight: bold;
+    color: #C71585;
+    border-left: 6px solid #FFB6C1;
+    padding-left: 20px;
+}

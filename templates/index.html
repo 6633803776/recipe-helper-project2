@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <title>Recipe Recommender</title>
+    <!-- 🚨 นำเข้าฟอนต์ Google Fonts ให้ถูกต้อง -->
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="logo">Recipe Helper</span>
+            <!-- ลิงก์ไปยังหน้า Favorites/Grocery List -->
+            <a href="{{ url_for('show_grocery_list') }}" class="nav-link">🛒 รายการซื้อของ</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>🍳 ค้นหาสูตรอาหาร</h1>
+        
+        <div class="search-area">
+            <form method="POST">
+                <input type="text" name="ingredient" placeholder="ป้อนวัตถุดิบ (เช่น chicken, salmon)" value="{{ query }}">
+                <button type="submit">ค้นหา</button>
+            </form>
+        </div>
+        
+        <hr>
+        
+        {% if recipes %}
+            <h2>ผลการค้นหา {{ query }} ({{ recipes|length }} รายการ)</h2>
+            <ul id="search-results">
+                {% for recipe in recipes %}
+                    <li class="favorite-item">
+                        {{ recipe.title }} 
+                        <div class="actions">
+                            <a href="{{ url_for('view_recipe', recipe_id=recipe.id) }}" class="btn-detail">🔍 ดูรายละเอียด</a>
+                            <a href="{{ url_for('favorite', recipe_id=recipe.id) }}" class="btn-favorite">⭐ บันทึกเป็นโปรด</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div> 
+
+</body>
+</html>

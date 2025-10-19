@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>รายละเอียด: {{ info.title }}</title>
+    <!-- นำเข้าฟอนต์ Google Fonts ให้ถูกต้อง -->
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <span class="logo">Recipe Helper</span>
+            <!-- ลิงก์กลับไปหน้าค้นหา -->
+            <a href="{{ url_for('index') }}" class="nav-link">🔍 กลับไปหน้าค้นหา</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>🔍 รายละเอียดสูตร: {{ info.title }}</h1>
+        
+        <!-- ลิงก์ไปยังหน้า Favorites/Grocery List -->
+        <p><a href="{{ url_for('show_grocery_list') }}">🛒 ดูรายการซื้อของและสูตรโปรด</a></p>
+
+        <h2>วัตถุดิบที่ต้องใช้</h2>
+        <ul id="ingredient-list">
+            {% for ingredient in info.ingredients %}
+                <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+        
+        <!-- ปุ่มบันทึกเป็นโปรดจากหน้านี้ -->
+        <div style="text-align: center; margin-top: 30px;">
+            <!-- ใช้ info.id เพื่อส่ง ID ของสูตรนี้ไปยัง route favorite -->
+            <a href="{{ url_for('favorite', recipe_id=info.id) }}" class="btn-favorite-large">⭐ บันทึกสูตรนี้เป็นโปรด</a>
+        </div>
+    </div>
+</body>
+</html>
